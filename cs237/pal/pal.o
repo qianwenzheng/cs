@@ -1,0 +1,155 @@
+WarmObjectFile2
+File pal.s
+Symbol SysEntropy 5
+Symbol SysGetChar 1
+Symbol SysGetNum 2
+Symbol SysHalt 0
+Symbol SysOverlay 6
+Symbol SysPLA 7
+Symbol SysPutChar 3
+Symbol SysPutNum 4
+Symbol isPal 9
+Symbol loop1 0
+Symbol loop2 14
+Symbol loop3 20
+Symbol overif1 45
+Symbol overif2 36
+Symbol overwhile1 48
+Symbol overwhile2 20
+Symbol overwhile3 39
+Symbol retRes 39
+Register a1 0
+Register a2 1
+Register a3 2
+Register a4 3
+Register ccr 16
+Register fp 11
+Register lbit 3
+Register lr 14
+Register n 1
+Register pc 15
+Register r0 0
+Register r1 1
+Register r10 10
+Register r11 11
+Register r12 12
+Register r13 13
+Register r14 14
+Register r15 15
+Register r2 2
+Register r3 3
+Register r4 4
+Register r5 5
+Register r6 6
+Register r7 7
+Register r8 8
+Register r9 9
+Register rbit 4
+Register res 2
+Register sp 13
+Register v1 4
+Register v2 5
+Register v3 6
+Register v4 7
+Register v5 8
+Register v6 9
+Register v7 10
+Memory 0 6800201
+Memory 1 5884000
+Memory 2 11808000
+Memory 3 8c00002d
+Memory 4 11808000
+Memory 5 8c000028
+Memory 6 118083ff
+Memory 7 ec000026
+Memory 8 c000001
+Memory 9 5900001
+Memory a 11808001
+Memory b ac00001c
+Memory c 5981201
+Memory d 5a00001
+Memory e 5a84040
+Memory f 32ac0c0
+Memory 10 11828000
+Memory 11 6c000003
+Memory 12 59844c1
+Memory 13 cfffffb
+Memory 14 1181c100
+Memory 15 ac000012
+Memory 16 5b040c0
+Memory 17 3334040
+Memory 18 11830000
+Memory 19 65b00001
+Memory 1a 45b00000
+Memory 1b 5b84100
+Memory 1c 33bc040
+Memory 1d 11838000
+Memory 1e 65b80001
+Memory 1f 45b80000
+Memory 20 118341c0
+Memory 21 4c000003
+Memory 22 5900000
+Memory 23 c000004
+Memory 24 59844c1
+Memory 25 5a04101
+Memory 26 cffffee
+Memory 27 11810001
+Memory 28 6c000005
+Memory 29 5804040
+Memory 2a 6800401
+Memory 2b 5800205
+Memory 2c 6800003
+Memory 2d 11808000
+Memory 2e 4c000002
+Memory 2f cffffd1
+Memory 30 6800000
+Source 0 loop1:  swi     #SysGetNum      ;scanf to get n, stoed in r0
+Source 1         mov     n,r0
+Source 2         cmp     n,#0
+Source 3         blt     overwhile1
+Source 4         cmp     n,#0
+Source 5         blt     overif1
+Source 6         cmp     n,#1023
+Source 7         bgt     overif1
+Source 8         b       isPal
+Source 9 isPal:  mov     res,#1
+Source a         cmp     n,#1
+Source b         ble     retRes
+Source c         mov     lbit,#512
+Source d         mov     rbit,#1
+Source e loop2:  mov     r5,n
+Source f         and     r5,r5,lbit
+Source 10         cmp     r5,#0
+Source 11         bne     overwhile2
+Source 12         mov     lbit,lbit,lsr #1
+Source 13         b       loop2
+Source 14 loop3:  cmp     lbit,rbit
+Source 15         ble     overwhile3
+Source 16         mov     r6,lbit
+Source 17         and     r6,r6,n
+Source 18         cmp     r6,#0
+Source 19         movne   r6,#1
+Source 1a         moveq   r6,#0
+Source 1b         mov     r7,rbit
+Source 1c         and     r7,r7,n
+Source 1d         cmp     r7,#0
+Source 1e         movne   r7,#1
+Source 1f         moveq   r7,#0
+Source 20         cmp     r6,r7
+Source 21         beq     overif2
+Source 22         mov     res,#0
+Source 23         b       retRes
+Source 24         mov     lbit,lbit,lsr #1
+Source 25         mov     rbit,rbit,lsl #1
+Source 26         b       loop3
+Source 27 retRes: cmp     res,#1
+Source 28         bne     overif1
+Source 29         mov     r0,n
+Source 2a         swi     #SysPutNum
+Source 2b         mov     r0,#'\n
+Source 2c         swi     #SysPutChar     
+Source 2d         cmp     n,#0
+Source 2e         beq     overwhile1
+Source 2f         b       loop1
+Source 30         swi     #SysHalt   
+End

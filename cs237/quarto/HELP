@@ -1,0 +1,23 @@
+                                QUARTO
+                     by Blaise Muller, (c) Gigamic
+
+  Quarto is a board game with 16 pieces each of which uniquely combines 4
+binary traits. Players receive unplayed pieces from their opponent and place
+them strategically on the board.  A win occurs when a row, column, or diagonal
+of 4 played pieces share some characteristic.
+  In this implementation, the pieces are the hexadecimal values 0 through F.
+The four traits are simply the bits that make up the values.  A win occurs
+when a player completes a row, column, or diagonal using values that share a
+binary digit value.
+  A player's turn begins when they receive an unused hex digit. The player then:
+    1. Places the digit by moving the board cursor (a highlighted square) and
+       then typing space.
+    2. Selects one of the remaining pieces (shown below the board) by typing
+       the apropriate hexadecimal digit.
+  Play continues until a win or draw.
+Keys: ^N  Move cursor down one row      ^P  Move cursor up one row
+      ^B  Move cursor left one column   ^F  Move cursor right one column
+      SPACE Play piece at this location ^G  Give up playing theseus
+      ^H  Get help                      ENTER Put up emacs facade
+                  (Press any key to return to play.)
+                                   

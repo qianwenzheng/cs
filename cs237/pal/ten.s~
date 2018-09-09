@@ -1,0 +1,21 @@
+;;; (c) Qianwen (Tiffany) Zheng - a program to print 1 to 10
+	;; for (i=1; i <=10; i++) printf("%d\n",i);
+	.requ	i,r1
+	b	main		;want the main at the top of the program
+max:	.data	1023
+main:	mov	i,#1
+	ldr	r2,max		 
+loop:	
+	cmp	i,r2
+	bgt	done
+	mov	r0,i
+	bl	printNum	;calls printNum
+	add	i,i,#1		;increments i
+	b	loop
+done:	swi	#SysHalt	;//must halt the machine
+
+printNum:
+	swi	#SysPutNum	;print num out
+	mov	r0,#'\n
+	swi 	#SysPutChar
+	mov	pc,lr		;mov pc into lr

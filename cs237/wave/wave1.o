@@ -1,0 +1,305 @@
+WindObjectFile1
+File wave1.s
+Symbol SWIHALT 109051904
+Symbol SysEntropy 5
+Symbol SysGetChar 1
+Symbol SysGetNum 2
+Symbol SysHalt 0
+Symbol SysOverlay 6
+Symbol SysPLA 7
+Symbol SysPutChar 3
+Symbol SysPutNum 4
+Symbol WARM 236
+Symbol adcstr 6
+Symbol addstr 2
+Symbol adrstr 82
+Symbol andstr 26
+Symbol blstr 88
+Symbol bstr 86
+Symbol cmpstr 14
+Symbol divstr 42
+Symbol eorstr 18
+Symbol hey 192
+Symbol instab 95
+Symbol ldmstr 58
+Symbol ldrstr 66
+Symbol ldustr 74
+Symbol main 127
+Symbol mlastr 38
+Symbol movstr 46
+Symbol mulstr 34
+Symbol mvnstr 50
+Symbol nl 231
+Symbol nullstr 91
+Symbol orrstr 22
+Symbol print 178
+Symbol stmstr 62
+Symbol strstr 70
+Symbol stustr 78
+Symbol substr 10
+Symbol swistr 54
+Symbol tststr 30
+Register r0 0
+Register r1 1
+Register r10 10
+Register r11 11
+Register r12 12
+Register r13 13
+Register r14 14
+Register r15 15
+Register r2 2
+Register r3 3
+Register r4 4
+Register r5 5
+Register r6 6
+Register r7 7
+Register r8 8
+Register r9 9
+Register rbp 6
+Register rip 16
+Register rsp 7
+Register wir 11
+Register wpc 10
+Memory 2 61
+Memory 3 64
+Memory 4 64
+Memory 5 0
+Memory 6 61
+Memory 7 64
+Memory 8 63
+Memory 9 0
+Memory a 73
+Memory b 75
+Memory c 62
+Memory d 0
+Memory e 63
+Memory f 6d
+Memory 10 70
+Memory 11 0
+Memory 12 65
+Memory 13 6f
+Memory 14 72
+Memory 15 0
+Memory 16 6f
+Memory 17 72
+Memory 18 72
+Memory 19 0
+Memory 1a 61
+Memory 1b 6e
+Memory 1c 64
+Memory 1d 0
+Memory 1e 74
+Memory 1f 73
+Memory 20 74
+Memory 21 0
+Memory 22 6d
+Memory 23 75
+Memory 24 6c
+Memory 25 0
+Memory 26 6d
+Memory 27 6c
+Memory 28 61
+Memory 29 0
+Memory 2a 64
+Memory 2b 69
+Memory 2c 76
+Memory 2d 0
+Memory 2e 6d
+Memory 2f 6f
+Memory 30 76
+Memory 31 0
+Memory 32 6d
+Memory 33 76
+Memory 34 6e
+Memory 35 0
+Memory 36 73
+Memory 37 77
+Memory 38 69
+Memory 39 0
+Memory 3a 6c
+Memory 3b 64
+Memory 3c 6d
+Memory 3d 0
+Memory 3e 73
+Memory 3f 74
+Memory 40 6d
+Memory 41 0
+Memory 42 6c
+Memory 43 64
+Memory 44 72
+Memory 45 0
+Memory 46 73
+Memory 47 74
+Memory 48 72
+Memory 49 0
+Memory 4a 6c
+Memory 4b 64
+Memory 4c 75
+Memory 4d 0
+Memory 4e 73
+Memory 4f 74
+Memory 50 75
+Memory 51 0
+Memory 52 61
+Memory 53 64
+Memory 54 72
+Memory 55 0
+Memory 56 62
+Memory 57 0
+Memory 58 62
+Memory 59 6c
+Memory 5a 0
+Memory 5b 42
+Memory 5c 41
+Memory 5d 44
+Memory 5e 0
+Memory 5f 2
+Memory 60 6
+Memory 61 a
+Memory 62 e
+Memory 63 12
+Memory 64 16
+Memory 65 1a
+Memory 66 1e
+Memory 67 22
+Memory 68 26
+Memory 69 2a
+Memory 6a 2e
+Memory 6b 32
+Memory 6c 36
+Memory 6d 3a
+Memory 6e 3e
+Memory 6f 42
+Memory 70 46
+Memory 71 4a
+Memory 72 4e
+Memory 73 52
+Memory 74 5b
+Memory 75 5b
+Memory 76 5b
+Memory 77 56
+Memory 78 56
+Memory 79 58
+Memory 7a 58
+Memory 7b 5b
+Memory 7c 5b
+Memory 7d 5b
+Memory 7e 5b
+Memory c0 48
+Memory c1 65
+Memory c2 79
+Memory c3 2c
+Memory c4 20
+Memory c5 49
+Memory c6 20
+Memory c7 66
+Memory c8 6f
+Memory c9 75
+Memory ca 6e
+Memory cb 67
+Memory cc 20
+Memory cd 74
+Memory ce 68
+Memory cf 65
+Memory d0 20
+Memory d1 23
+Memory d2 53
+Memory d3 79
+Memory d4 73
+Memory d5 48
+Memory d6 61
+Memory d7 6c
+Memory d8 74
+Memory d9 20
+Memory da 61
+Memory db 74
+Memory dc 20
+Memory dd 6c
+Memory de 6f
+Memory df 63
+Memory e0 61
+Memory e1 74
+Memory e2 69
+Memory e3 6f
+Memory e4 6e
+Memory e5 20
+Memory e6 0
+Memory 0 8198000 7e
+Memory 7f 40198000 6c
+Memory 81 180000 6
+Memory 83 49580000 0
+Memory 85 496d0000 ec
+Memory 87 48050000
+Memory 88 180000 4
+Memory 8a 48180000 3a
+Memory 8c 180000 3
+Memory 8e 48180000 9
+Memory 90 180000 3
+Memory 92 48258000
+Memory 93 c8380000 17
+Memory 95 80380000 1f
+Memory 97 48088000 5f
+Memory 99 f0198000 18
+Memory 9b f0198000 4b
+Memory 9d 99780000 6800000
+Memory 9f 20198000 5
+Memory a1 a1580000 1
+Memory a3 8198000 ffffffe1
+Memory a5 40198000 1a
+Memory a7 f0198000 a
+Memory a9 48050000
+Memory aa 180000 4
+Memory ac f0198000 3a
+Memory ae 180000 0
+Memory b0 180000 0
+Memory b2 48200000
+Memory b3 48088000 0
+Memory b5 98180000 0
+Memory b7 20198000 7
+Memory b9 180000 3
+Memory bb a0380000 1
+Memory bd 8198000 fffffff5
+Memory bf f8000000
+Memory e7 48180000 a
+Memory e9 180000 3
+Memory eb f8000000
+Source 0         jmp     main
+Source 7f main:   lea     WARM,r0         ;take the thing im pointing to in memory, get the addr of that thing and put that addr in r0, could do as mov $WARM,r0
+Source 81         trap    $SysOverlay
+Source 83         mov     $0,wpc
+Source 85 _loop:  mov     WARM(wpc),wir   ;grab instruction of warm and move it into wir
+Source 87         mov     wpc,r0
+Source 88         trap    $SysPutNum
+Source 8a         mov     $':,r0
+Source 8c         trap    $SysPutChar
+Source 8e         mov     $'\t,r0
+Source 90         trap    $SysPutChar
+Source 92         mov     wir,r1
+Source 93         shr     $23,r1
+Source 95         and     $0x1f,r1
+Source 97         mov     instab(r1),r0
+Source 99         call    print
+Source 9b         call    nl
+Source 9d         cmp     $SWIHALT,wir
+Source 9f         je      _done
+Source a1         add     $1,wpc
+Source a3         jmp     _loop
+Source a5 _done:    lea     hey,r0
+Source a7         call    print
+Source a9         mov     wpc,r0
+Source aa         trap    $SysPutNum
+Source ac         call    nl
+Source ae         trap    $SysHalt
+Source b0         trap    $SysHalt
+Source b2 print:  mov     r0,r1
+Source b3 _loop:  mov     (r1),r0
+Source b5         cmp     $0,r0
+Source b7         je      _done
+Source b9         trap    $SysPutChar
+Source bb         add     $1,r1
+Source bd         jmp     _loop
+Source bf _done:  ret
+Source e7 nl:     mov     $'\n,r0
+Source e9         trap    $SysPutChar
+Source eb         ret
+End

@@ -1,0 +1,10 @@
+This is the source for the curses-based Quarto game, (c) duane bailey 2017
+
+It may be built by typing:
+   make
+or
+   make quarto
+
+The student is to update win.c with code that detects a win and highlights
+the proof.
+

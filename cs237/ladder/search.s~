@@ -1,0 +1,95 @@
+# A translation of isWordC from ladder.c ; appears as isWord.
+# (c) 2017 Qianwen (Tiffany) Zheng
+
+# Entry equates (entry size is 32)
+	.equ	word,8
+	.equ	que,16
+	.equ	ladd,24
+	.equ	seen,0
+	
+# Dict equates
+	.equ	dict,8
+	.equ	alloced,0
+	.equ	count,16
+	
+	.text
+	.globl	isWord
+	.type	isWord,@function
+
+# Frame layout:
+	
+# ans	-48
+# ent	-40
+# dif	-32
+# mid	-28
+# hi	-24
+# lo	-20
+# dtn	-16	
+# w	-8
+# oldfp	 +0
+# return +8
+	
+# Frame equates (frame size is 48):
+	.equ	w,-8
+	.equ	dtn,-16
+	.equ	lo,-20
+	.equ	hi,-24
+	.equ	mid,-28
+	.equ	dif,-32
+	.equ	ent,-40
+	.equ	ans,-48
+	
+isWord:
+	pushq 	%rbp			#caller's old frame pointer
+	movq	%rsp,%rbp		#set frame pointer to %rsp
+	subq	$48,%rsp		#move stack pointer to END of frame
+	movq	%rdi,w(%rbp)		#set first parameter value
+	movq	%rsi,dtn(%rbp)		#set second parameter value
+
+	movq	dtn(%rbp),%rax		#set %rax to dtn		
+	movl	count(%rax),%edi	#set %edi to count
+	subl	$1,%edi			#subtract one from %edi
+	movl	%edi,hi(%rbp)		#int hi=(dtn->count)-1
+
+	movl	$0,lo(%rbp)		#int lo = 0
+	movq 	$0,ans(%rbp)		#entry *ans=0
+loop:	movl	lo(%rbp),%edx		#store lo in %edi
+	movl	hi(%rbp),%edi		#store hi in %esi
+	cmpl	%edx,%edi		#lo <= hi
+	jl	overloop		#if hi < lo
+	addl	%edi,%edx		#lo+hi 
+	sarl	$1,%edx			#(lo+hi)/2
+	movl	%edx,mid(%rbp)		#mid = (lo+hi)/2
+	movq	mid(%rbp),%rdx		#store mid in %rdx
+	movq	dtn(%rbp),%rax		#set %rax to dtn
+	movq	dict(%rax),%rsi		#set %rsi to dict DICT IS NOT RCX
+	salq    $5,%rdx                 #mid*32
+	salq    $32,%rdx                #clear garbage
+	sarq    $32,%rdx                #clear garbage
+	addq	%rsi,%rdx		#(dtn->dict)+mid 
+	movq	%rdx,ent(%rbp)		#ent=(dtn->dict)+mid
+	movq	w(%rbp),%rdi		#set first parameter of strcmp
+	movq	ent(%rbp),%rax		#set %rax to ent
+	movq	word(%rax),%rsi		#set second parameter of strcmp
+	call	strcmp			#call strcmp(w,ent->word)
+	movl	%eax,dif(%rbp)		#dif=strcmp(w,end->word)
+	cmpl	$0,%eax			#dif < 0
+	jg	elseif			#if dif > 0
+	je	else			#if dif==0
+	movq	mid(%rbp),%rdx		
+	subl  	$1,%edx			#subtract one from %edi
+	movq	%rdx,hi(%rbp)		#hi=mid-1
+	jmp	loop			#go through the loop again
+elseif:	movq	mid(%rbp),%rdx	
+	addl	$1,%edx			#mid+1
+	movq	%rdx,lo(%rbp)		#lo=mid+1
+	jmp 	loop			#go through the loop again
+else:	movq	ent(%rbp),%rsi		#ans=ent
+	movq	%rsi,ans(%rbp)		#ans=ent
+	jmp	overloop		#break
+overloop:	
+	movq	ans(%rbp),%rax		#set %rax to the value of ans
+	movq	%rbp,%rsp		#set stack pointer to %rbp
+	popq	%rbp			#pop the base pointer off top of stack
+	ret
+	.size	isWord,.-isWord

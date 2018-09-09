@@ -1,0 +1,16 @@
+This directory has resources related to the root-finding algorithm.
+(c) 2013,2015,2017 duane a. bailey
+
+These computational resources are useful for verifying circuit design work.
+     README      - this file
+     Makefile	 - the instructions for making sqrt and csqrt
+     sqrt.c	 - the driver for the root routine
+     root.s	 - an assembly language implementation (only useful on Linux)
+     root.pdf    - the lab handout
+
+To build the system: 
+     make csqrt
+
+To build assembly version:
+     make asqrt
+
